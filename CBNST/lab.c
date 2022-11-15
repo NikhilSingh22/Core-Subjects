@@ -214,3 +214,45 @@ int main()
         printf("%f\n",x[i]);
     }
 }
+
+//Gauss Jordan
+#include<stdio.h>
+#include<math.h>
+#define eps 0.001
+int main()
+{
+   
+    int n = 3;
+   float a[3][4]={{1,1,19,9},{2,-3,4,13},{3,4,5,40}};
+    float s;
+    for(int i = 0;i<n;i++)
+    {
+        for(int j = 0;j<n;j++)
+        {
+            if(i!=j)
+            {
+                s = a[j][i]/a[i][i];
+                for(int k = 0;k<=n;k++)
+                {
+                    a[j][k]=a[j][k]-(a[i][k]*s);
+                }
+            }
+        }
+    }
+    
+    for(int i= 0;i<n;i++)
+    {
+        for(int j = 0;j<=n;j++)
+        {
+            printf("%f ",a[i][j]);
+        }
+        printf("\n");
+    }
+    
+
+    
+    for(int i= 0;i<n;i++)
+    {
+        printf("%f\n",a[i][n]/a[i][i]);
+    }
+}
