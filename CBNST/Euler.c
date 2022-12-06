@@ -13,9 +13,8 @@ float func(float x, float y)
  
 void euler(float x0, float y, float h, float x)
 {
-    float temp = 0;
+    
     while (x0 < x) {
-        temp = y;
         y = y + h * func(x0, y);
         x0 = x0 + h;
     }
