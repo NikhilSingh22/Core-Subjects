@@ -1,8 +1,19 @@
-
+// NAME: NIKHIL SINGH
+// SECTION: I
+// BTECH CSE
+// UNIVERSITY ROLL NO.: 2016880
+// Enter the initial value of x and y
+// 1 1.5
+// Enter the step size of the differential equation
+// 0.1
+// Enter the value of x at which you need the value of y
+// 1.2
+// The value of y at x = 1.200000 is 2.504366
+    
 #include<stdio.h>
-float dydx(float x, float y)
+float func(float x, float y)
 {
-    return((x - y)/2);
+    return(x*x+y*y);
 }
   
 float rungeKutta(float x0, float y0, float x, float h)
@@ -17,10 +28,10 @@ float rungeKutta(float x0, float y0, float x, float h)
     for (int i=0; i<n; i++)
     {
 
-        k1 = h*dydx(x0, y);
-        k2 = h*dydx(x0 + 0.5*h, y + 0.5*k1);
-        k3 = h*dydx(x0 + 0.5*h, y + 0.5*k2);
-        k4 = h*dydx(x0 + h, y + k3);
+        k1 = h*func(x0, y);
+        k2 = h*func(x0 + 0.5*h, y + 0.5*k1);
+        k3 = h*func(x0 + 0.5*h, y + 0.5*k2);
+        k4 = h*func(x0 + h, y + k3);
   
         y = y + (1.0/6.0)*(k1 + 2*k2 + 2*k3 + k4);
   
