@@ -17,19 +17,16 @@ int main()
     scanf("%f",&x);
     
     float k1,k2,k3,k4,y;
-    int n = (int)( (x-x0)/h);
-    
-    for(int i= 0;i<n;i++)
+
+    for(int i =x0;x0<x;x0+=h)
     {
-        k1= h*f(x0,y0);
-        k2 = h*f((x0+(h*0.5f)),(y0+(k1*0.5f)));
-        k3 = h*f((x0+(h*0.5f)),(y0+(k2*0.5f)));
-        k4 = h*f(x0+h,y0+k3);
-        
-        y = (y0 + (1.0f/6.0f)*(k1+(2.0f*k2)+(2.0f+k3)+k4));
-        x0=x0+h;
-        printf("Iteration %d  %f @x = %f\n",i+1,y,x0);
-        y0=y;
+        k1 = h*f(x0, y0);
+        k2 = h*f((x0+(h/2.0f)),(y0+(k1/2.0f)));
+        k3 = h*f((x0+(h/2.0f)),(y0+(k2/2.0f)));
+        k4 = h*f((x0+h),(y0+k3));
+        y = (y0+((1.0f/6.0f)*(k1+(2.0f*k2)+(2.0f*k3)+k4)));
+        printf("Iteration %d :\t%f @ x = %.2f\n", i+1, y, x0+h);
+        y0 = y;
     }
     
     
