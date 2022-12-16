@@ -25,7 +25,7 @@ int main()
    
    for(int j=2 ;j<=n;j++)
    {
-       for(int i = n-1;i<j-2;i++)
+       for(int i = n-1;i>j-2;i++)
        {
            dt[i][j] = dt[i][j-1]-dt[i-1][j-1];
        }
