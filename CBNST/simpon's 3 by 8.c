@@ -12,7 +12,7 @@ int main()
     printf("Enter the number of subintervals\n");
     scanf("%d",&n);
     
-    assert(n%2==0);
+    assert(n%3==0);
     float x[max],y[max];
     printf("Enter teh interval (x0,x1): ");
     scanf("%f%f",&x[0],&x[n]);
