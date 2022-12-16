@@ -21,11 +21,11 @@ int main()
    float x;
    printf("Enter the value of x for which you find y");
    scanf("%f",&x);
-   float u = (x-dt[0][0])/h;
+   float u = (x-dt[n-1][0])/h;
    
    for(int j=2 ;j<=n;j++)
    {
-       for(int i = n-1;i>j-2;i++)
+       for(int i = n-1;i>j-2;i--)
        {
            dt[i][j] = dt[i][j-1]-dt[i-1][j-1];
        }
@@ -33,7 +33,7 @@ int main()
    
    float ans = dt[n-1][1];
    float ch = u;
-   float fact = 1.0;
+   float fact = 1.0f;
    
    for(int i = 2 ;i<=n;i++)
    {
